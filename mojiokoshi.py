@@ -1,6 +1,7 @@
 import whisper
 import os
 import sys
+import subprocess
 
 def mojiokoshi(file_path):
     model = whisper.load_model('large')
@@ -35,6 +36,9 @@ def find_file():
     file_path = file_path + file_name
     print(file_path)
     return file_path
+
+subprocess.run(['pip install git+https://github.com/openai/whisper.git'], shell = True)
+subprocess.run(['brew install ffmpeg'], shell = True)
 
 
 file_path = find_file()
