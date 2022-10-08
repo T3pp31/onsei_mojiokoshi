@@ -1,4 +1,3 @@
-import whisper
 import os
 import sys
 import subprocess
@@ -37,8 +36,14 @@ def find_file():
     print(file_path)
     return file_path
 
-TorF = input('ffmpegとwhisperは入っていますか？(Yes or No):')
-if TorF == 'No' or 'no':
+TorF = input('ffmpegとwhisperは入っていますか？(1:Yes,2:No):')
+try:
+    TorF = int(TorF)
+except:
+    print('数字以外が入力されました.1か2を入力してください．')
+    sys.exit()
+    
+if TorF == 2:
     subprocess.run(['pip install git+https://github.com/openai/whisper.git'], shell = True)
     try:
         subprocess.run(['brew install ffmpeg'], shell = True)
@@ -47,7 +52,7 @@ if TorF == 'No' or 'no':
         sys.exit()
         
 
-
+import whisper
 file_path = find_file()
 result = mojiokoshi(file_path)
 print(result["text"])
