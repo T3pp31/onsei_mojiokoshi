@@ -37,8 +37,15 @@ def find_file():
     print(file_path)
     return file_path
 
-subprocess.run(['pip install git+https://github.com/openai/whisper.git'], shell = True)
-subprocess.run(['brew install ffmpeg'], shell = True)
+TorF = input('ffmpegとwhisperは入っていますか？(Yes or No):')
+if TorF == 'No' or 'no':
+    subprocess.run(['pip install git+https://github.com/openai/whisper.git'], shell = True)
+    try:
+        subprocess.run(['brew install ffmpeg'], shell = True)
+    except:
+        print('mac以外は対応してません')
+        sys.exit()
+        
 
 
 file_path = find_file()
