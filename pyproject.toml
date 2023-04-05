@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "onsei-mojiokoshi"
+version = "0.1.0"
+description = "音声を文字にします"
+authors = ["Fu-Te <37261985+T3pp31@users.noreply.github.com>"]
+readme = "README.md"
+packages = [{include = "onsei_mojiokoshi"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+whisper = "^1.1.10"
+pytest = "^7.2.2"
+openai-whisper = {git = "https://github.com/openai/whisper.git"}
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
