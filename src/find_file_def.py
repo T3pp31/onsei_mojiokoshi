@@ -9,19 +9,27 @@ def find_file():
 
     """
     layout = [
-        [
-            sg.Text("音声ファイルを選択してください"),
-            sg.InputText(),
-            sg.FileBrowse(key="file1"),
-        ],
-        [sg.Submit(), sg.Cancel()],
+        [sg.Text("ファイルを選択してください:")],
+        [sg.Input(), sg.FileBrowse()],
+        [sg.OK(), sg.Cancel()],
     ]
-    window = sg.Window("ファイル選択", layout)
 
-    event, values = window.read()
+    window = sg.Window("ファイルアップロード", layout)
+
+    while True:
+        event, values = window.read()
+
+        if event == sg.WIN_CLOSED or event == "Cancel":
+            break
+        elif event == "OK":
+            file_path = values[0]
+            sg.popup(f"選択されたファイル: {file_path}")
+            break
+    sg.popup("しばらく時間がかかります．")
+    sg.popup("終了したら，終了を確認するウィンドウが表示されるので，それまでお待ちください")
     window.close()
-    file_path = values["file1"]
-    print(file_path)
+
+    return file_path
 
 
 if __name__ == "__main__":

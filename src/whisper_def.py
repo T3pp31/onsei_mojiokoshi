@@ -1,7 +1,9 @@
+import PySimpleGUI as sg
 import whisper
 
 
 def mojiokoshi(file_path):
     model = whisper.load_model("large")
     result = model.transcribe(file_path, verbose=True)
-    return result
+
+    return result["text"]

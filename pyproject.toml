@@ -12,6 +12,7 @@ whisper = "^1.1.10"
 pytest = "^7.2.2"
 openai-whisper = {git = "https://github.com/openai/whisper.git"}
 pysimplegui = "^4.60.4"
+soundfile = "^0.12.1"
 
 
 [build-system]
