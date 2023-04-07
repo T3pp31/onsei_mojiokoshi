@@ -11,8 +11,8 @@ def mojiokoshi(file_path):
 
 layout = [
     [sg.Text("ファイルパス"), sg.Input(), sg.FileBrowse()],
-    [sg.Button("実行"), sg.Button("キャンセル")],
-    [sg.Output(size=(60, 20))],
+    [sg.Button("実行"), sg.Button("終了")],
+    [sg.Output(size=(80, 40))],
 ]
 
 
@@ -28,7 +28,7 @@ while True:
         result = mojiokoshi(file_path)
         print(result)
 
-    elif event == "キャンセル" or event == sg.WIN_CLOSED:
+    elif event == "終了" or event == sg.WIN_CLOSED:
         break
 
 window.close()
